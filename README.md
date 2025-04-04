@@ -44,7 +44,7 @@ Basketball is a global sport where team strategies can benefit greatly from data
 - **Effective Field Goal %** was the strongest predictor across most positions
 - **Point Guards** showed positive scoring impact from assists and defensive rebounds, with assist coefficients highly significant (p < 0.01)
 - **Shooting Guards** displayed nonlinear relationships with minutes played and scoring
-- **Centers** achieved the best overall model performance, with an **adjusted R² of 0.997** and low RMSE
+- **Centers** achieved the best overall model performance, with an adjusted R² of 0.997 and low RMSE
 
 ---
 
