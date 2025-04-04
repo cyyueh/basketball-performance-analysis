@@ -35,7 +35,7 @@ Basketball is a global sport where team strategies can benefit greatly from data
 - Applied transformations (log, square, cube) to normalize skewed variables
 - Added interaction terms and squared terms for non-linear relationships
 - Performed residual analysis to validate model assumptions
-- Evaluated model performance via RMSE, adjusted R², correlation coefficient
+- Evaluated model performance using RMSE, adjusted R², correlation coefficient
 
 ---
 
