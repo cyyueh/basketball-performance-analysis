@@ -5,7 +5,7 @@ Basketball Player Performance Prediction (DSC 423)
 
 This project uses historical NBA statistics to build regression models that predict points scored by players based on key in-game metrics. We analyzed players by position (PG, SG, SF, PF, C), performed variable transformations, selected features, and tested multiple interaction and second-order terms to improve predictive performance.
 
-**Dataset Link:** [NBA Player Stats](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data](https://www.kaggle.com/datasets/sadeghjalalian/nba-player-stats-19982022)
+**Dataset Link:** [NBA Player Stats](https://www.kaggle.com/datasets/sadeghjalalian/nba-player-stats-19982022)
 
 ---
 
