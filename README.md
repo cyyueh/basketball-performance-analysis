@@ -1,12 +1,11 @@
 # basketball-performance-analysis
-Basketball Player Performance Prediction (Regression Model)
+Basketball Player Performance Prediction (DSC 423)
 
 # Predicting NBA Player Scoring Performance Using Regression
 
 This project uses historical NBA statistics to build regression models that predict points scored by players based on key in-game metrics. We analyzed players by position (PG, SG, SF, PF, C), performed variable transformations, selected features, and tested multiple interaction and second-order terms to improve predictive performance.
 
-📄 **Dataset Source:** NBA_Player_Stats.csv (Kaggle)  
-📁 **Project Type:** Group project (DSC423)
+**Dataset Link:** [NBA Player Stats]([https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data](https://www.kaggle.com/datasets/sadeghjalalian/nba-player-stats-19982022))
 
 ---
 
@@ -18,7 +17,7 @@ Basketball is a global sport where team strategies can benefit greatly from data
 
 ## Tools & Technologies
 
-- R (car, caret, ggplot2)
+- R Studio
 - Regression modeling & diagnostics
 - Feature selection (stepwise)
 - Interaction & second-order term analysis
@@ -42,40 +41,24 @@ Basketball is a global sport where team strategies can benefit greatly from data
 
 ## Key Findings
 
-- **Effective field goal %** consistently had the highest predictive power across most positions
-- **Point Guards** benefited from high assists and defensive rebounding in scoring prediction
-- **Shooting Guards** had nonlinear relationships with minutes played and scoring
-- **Small Forwards** showed strong dependence on free throw accuracy and 3-point shooting
-- **Power Forwards** scored more through free throw attempts and rebounds
-- **Centers** had highest adjusted R² (0.997), scoring influenced by assists and shooting accuracy
-- Final models achieved **adjusted R² values between 0.921 and 0.998**, with low RMSE
+- **Effective Field Goal %** was the strongest predictor across most positions
+- **Point Guards** showed positive scoring impact from assists and defensive rebounds, with assist coefficients highly significant (p < 0.01)
+- **Shooting Guards** displayed nonlinear relationships with minutes played and scoring
+- **Centers** achieved the best overall model performance, with an **adjusted R² of 0.997** and low RMSE
 
 ---
 
 ## Future Work
 
-- Incorporate advanced regularization techniques (e.g., Ridge, Lasso)
-- Introduce player-level time series data to track trends across seasons
-- Add advanced stats (PER, usage rate, offensive rating) for richer models
-- Explore clustering to group players with similar scoring profiles
+- Use more comprehensive basketball metrics such as PER, offensive rating, and usage rate to improve prediction accuracy
+- Track player performance over time to incorporate a temporal component into the model
+- Explore alternative performance outcomes beyond points scored, such as efficiency rating or win shares
 
 ---
 
 ## Files
 
-- `notebooks/`: Contains my portion of the analysis including regression modeling, residual analysis, and cross-validation
-- `images/`: Visualizations used in this README (e.g., correlation heatmaps, residual plots)
+- `notebooks/`: Includes my contribution to the analysis, specifically the regression modeling, variable transformation, residual analysis, and cross-validation for the Point Guard (PG) position
 - `Project_Report.pdf`: Final group report providing full model details and cross-position comparison
-
----
-
-## Contribution
-
-This was a group project completed in DSC423. The contents included in this repo reflect **my personal contributions**, which include:
-
-- Regression modeling for the **Point Guard** and **Small Forward** positions
-- Variable transformation, multicollinearity resolution, and VIF analysis
-- Residual analysis and RMSE-based model evaluation
-- Co-wrote report sections related to feature selection and statistical significance
 
 ---
