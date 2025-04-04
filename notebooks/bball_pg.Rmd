@@ -1,0 +1,352 @@
+---
+title: "ds423_bball_cyy_0306"
+output: html_document
+date: "2024-03-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+bball_pg<-Basketball_PG[,-c(1)]
+na.omit(bball_pg)
+str(bball_pg)
+```
+
+```{r}
+hist(bball_pg$Points)
+hist(bball_pg$Age)
+hist(bball_pg$Games)
+hist(bball_pg$Games.Scored)
+hist(bball_pg$Min..Played)
+hist(bball_pg$Field.Goals)
+hist(bball_pg$Field.Goals.Attempted)
+hist(bball_pg$FG.)
+hist(bball_pg$X3.Point.made)
+hist(bball_pg$X3.point.attempted)
+hist(bball_pg$X3P.)
+hist(bball_pg$X2.Point.made)
+hist(bball_pg$X2.Point.Attempted)
+hist(bball_pg$X2P.)
+hist(bball_pg$Effective.field.goal..)
+hist(bball_pg$Free.Throw.made)
+hist(bball_pg$Free.Throw.Attempted)
+hist(bball_pg$Free.Throw.)
+hist(bball_pg$Offensive.rebounds)
+hist(bball_pg$Defensive.rebounds)
+hist(bball_pg$Total.Rebounds)
+hist(bball_pg$Assits)
+hist(bball_pg$Steals)
+hist(bball_pg$Blocks)
+hist(bball_pg$Turnovers)
+hist(bball_pg$Personal.Fouls)
+```
+
+
+```{r}
+hist(log(bball_pg$Points+1))
+hist(log(bball_pg$Age))
+hist(log(bball_pg$Games+1))
+hist(log(bball_pg$Games.Scored+1))
+hist(log(bball_pg$Field.Goals+1))
+hist(log(bball_pg$Field.Goals.Attempted+1))
+hist(log(bball_pg$X3.Point.made+1))
+hist(log(bball_pg$X3.point.attempted+1))
+hist(log(bball_pg$X2.Point.made+1))
+hist(log(bball_pg$X2.Point.Attempted+1))
+hist(log(bball_pg$Free.Throw.made+1))
+hist(log(bball_pg$Free.Throw.Attempted+1))
+hist(log(bball_pg$Free.Throw.+1))
+hist(log(bball_pg$Offensive.rebounds+1))
+hist(log(bball_pg$Defensive.rebounds+1))
+hist(log(bball_pg$Total.Rebounds+1))
+hist(log(bball_pg$Assits+1))
+hist(log(bball_pg$Steals+1))
+hist(log(bball_pg$Blocks+1))
+hist(log(bball_pg$Turnovers+1))
+```
+
+
+```{r}
+hist(bball_pg$Games^2)
+hist(bball_pg$Games.Scored^2)
+hist(bball_pg$X3.Point.made^2)
+hist(bball_pg$Free.Throw.made^2)
+hist(bball_pg$Free.Throw.Attempted^2)
+hist(bball_pg$Free.Throw.^2)
+hist(bball_pg$Offensive.rebounds^2)
+hist(bball_pg$Blocks^2)
+```
+
+```{r}
+hist(bball_pg$Games^(1/3))
+hist(bball_pg$Games.Scored^(1/3))
+hist(bball_pg$X3.Point.made^(1/3))
+hist(bball_pg$Free.Throw.made^(1/3))
+hist(bball_pg$Free.Throw.Attempted^(1/3))
+hist(bball_pg$Free.Throw.^(1/3))
+hist(bball_pg$Offensive.rebounds^(1/3))
+hist(bball_pg$Blocks^(1/3))
+```
+
+```{r}
+hist(sqrt(bball_pg$Games))
+hist(sqrt(bball_pg$Games.Scored))
+hist(sqrt(bball_pg$X3.Point.made))
+hist(sqrt(bball_pg$Free.Throw.made))
+hist(sqrt(bball_pg$Free.Throw.Attempted))
+hist(sqrt(bball_pg$Free.Throw.))
+hist(sqrt(bball_pg$Offensive.rebounds))
+hist(sqrt(bball_pg$Blocks))
+```
+
+```{r}
+bball_pg$Points<-log(bball_pg$Points+1)
+bball_pg$Age<-log(bball_pg$Age)
+bball_pg$Games.Scored<-log(bball_pg$Games.Scored+1)
+bball_pg$Field.Goals<-log(bball_pg$Field.Goals+1)
+bball_pg$Field.Goals.Attempted<-log(bball_pg$Field.Goals.Attempted+1)
+bball_pg$X3.Point.made<-sqrt(bball_pg$X3.Point.made)
+bball_pg$X3.point.attempted<-log(bball_pg$X3.point.attempted+1)
+bball_pg$X2.Point.made<-log(bball_pg$X2.Point.made+1)
+bball_pg$X2.Point.Attempted<-log(bball_pg$X2.Point.Attempted+1)
+bball_pg$Free.Throw.made<-bball_pg$Free.Throw.made^(1/3)
+bball_pg$Free.Throw.Attempted<-bball_pg$Free.Throw.Attempted^(1/3)
+bball_pg$Free.Throw.<-bball_pg$Free.Throw.^2
+bball_pg$Offensive.rebounds<-bball_pg$Offensive.rebounds^(1/3)
+bball_pg$Defensive.rebounds<-log(bball_pg$Defensive.rebounds+1)
+bball_pg$Total.Rebounds<-log(bball_pg$Total.Rebounds+1)
+bball_pg$Assits<-log(bball_pg$Assits+1)
+bball_pg$Steals<-log(bball_pg$Steal+1)
+bball_pg$Blocks<-bball_pg$Blocks^(1/3)
+bball_pg$Turnovers<-log(bball_pg$Turnovers+1)
+```
+
+```{r}
+model<-lm(Points~., data=bball_pg)
+summary(model)
+```
+
+
+```{r}
+install.packages("car")
+library(car)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+Field.Goals.Attempted+FG.+X3.Point.made+X3.point.attempted+X3P.+X2.Point.made+X2.Point.Attempted+X2P.+Effective.field.goal..+Free.Throw.made+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Total.Rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+Field.Goals.Attempted+FG.+X3.Point.made+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.made+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Total.Rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+Field.Goals.Attempted+FG.+X3.Point.made+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.made+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+Field.Goals.Attempted+X3.Point.made+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.made+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+Field.Goals.Attempted+X3.Point.made+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+X3.Point.made+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+Min..Played+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+model<-lm(Points~Age+Games+Games.Scored+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model)
+vif(model)
+```
+```{r}
+install.packages("MASS")
+library(MASS)
+model2<-lm(Points~Age+Games+Games.Scored+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Steals+Blocks+Turnovers+Personal.Fouls,data=bball_pg)
+summary(model2)
+```
+```{r}
+step <- stepAIC(model2, direction = "both")
+summary(step)
+```
+```{r}
+model2<-lm(Points~Age+Games+Games.Scored+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Personal.Fouls,data=bball_pg)
+summary(model2)
+```
+
+
+
+```{r}
+residuals = model2$residuals
+head(residuals)
+sum_r = sum(model2$residuals)
+sum_r
+```
+```{r}
+hist(model2$residuals, breaks = 100)
+```
+```{r}
+residuals = model2$residuals
+mean_r = mean(model2$residuals)
+mean_r
+sd_r = sd(model2$residuals)
+sd_r
+```
+```{r}
+zscore_r = (model2$residuals - mean_r)/sd_r
+head(zscore_r)
+hist(zscore_r, breaks = 100)
+```
+```{r}
+library(car)
+durbinWatsonTest(model2)
+```
+```{r}
+plot(bball_pg$Age, model2$residuals)
+plot(bball_pg$Age, zscore_r)
+```
+
+
+```{r}
+plot(bball_pg$Points, model2$residuals)
+plot(bball_pg$Points, zscore_r)
+plot(bball_pg$Age, zscore_r)
+plot(bball_pg$Games, zscore_r)
+plot(bball_pg$Games.Scored, zscore_r)
+plot(bball_pg$X3.point.attempted, zscore_r)
+plot(bball_pg$X3P., zscore_r)
+plot(bball_pg$X2.Point.made, zscore_r)
+plot(bball_pg$X2P., zscore_r)
+plot(bball_pg$Effective.field.goal.., zscore_r)
+plot(bball_pg$Free.Throw.Attempted, zscore_r)
+plot(bball_pg$Free.Throw., zscore_r)
+plot(bball_pg$Offensive.rebounds, zscore_r)
+plot(bball_pg$Defensive.rebounds, zscore_r)
+plot(bball_pg$Assits, zscore_r)
+plot(bball_pg$Personal.Fouls, zscore_r)
+```
+```{r}
+plot(model2)
+```
+```{r}
+partition <- sample(2, nrow(bball_pg), replace = TRUE, prob = c(0.80, 0.20))
+head(partition)
+train <- bball_pg[partition == 1 ,]
+head(train)
+dim(train)
+```
+```{r}
+test <- bball_pg[partition == 2 ,]
+head(test)
+dim(test)
+```
+```{r}
+prediction <- predict(model2, test)
+head(prediction)
+```
+```{r}
+actual = test$Points
+head(actual)
+```
+```{r}
+cor(prediction, actual)
+```
+```{r}
+bball_pg$Games_DefReb <- bball_pg$Games * bball_pg$Defensive.rebounds
+bball_pg$Assists_X3P <- bball_pg$Assits * bball_pg$X3P.
+bball_pg$Assists2 <- bball_pg$Assits^2
+bball_pg$Games2 <- bball_pg$Games^2
+```
+
+```{r}
+model3<-lm(Points~Age+Games+Games.Scored+X3.point.attempted+X3P.+X2.Point.made+X2P.+Effective.field.goal..+Free.Throw.Attempted+Free.Throw.+Offensive.rebounds+Defensive.rebounds+Assits+Personal.Fouls+Games_DefReb+Assists_X3P+Assists2+Games2,data=bball_pg)
+summary(model3)
+```
+```{r}
+res3 = model3$residuals
+sum_r3 = sum(model3$residuals)
+sum_r3
+
+mean_r3 = mean(model3$residuals)
+mean_r3
+
+sd_r3 = sd(model3$residuals)
+sd_r3
+
+mse_3 <- mean(res3^2)
+mse_3
+
+rmse_3 <- sqrt(mse_3)
+rmse_3
+```
+```{r}
+zscore_r3 = (model3$residuals - mean_r3)/sd_r3
+head(zscore_r3)
+hist(zscore_r3, breaks = 100)
+```
+```{r}
+plot(model3)
+```
+```{r}
+library(car)
+durbinWatsonTest(model3)
+```
+```{r}
+partition2 <- sample(2, nrow(bball_pg), replace = TRUE, prob = c(0.80, 0.20))
+head(partition2)
+train2 <- bball_pg[partition == 1 ,]
+head(train2)
+dim(train2)
+```
+```{r}
+test2 <- bball_pg[partition == 2 ,]
+head(test2)
+dim(test2)
+```
+```{r}
+prediction2 <- predict(model3, test2)
+head(prediction2)
+```
+```{r}
+actual2 = test2$Points
+head(actual2)
+```
+
+```{r}
+cor(prediction2, actual2)
+```
+
